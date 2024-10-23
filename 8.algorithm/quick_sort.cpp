@@ -93,7 +93,7 @@ void quick_sort_v3(vector<int> &arr, int l, int r) {
             while (arr[y] > z) --y;
             if (x <= y) swap(arr[x++], arr[y--]);
         } while (x <= y);
-        quick_sort_v3(arr, l, x);
+        quick_sort_v3(arr, l, y + 1);
         l = x;
     }
     return ;
