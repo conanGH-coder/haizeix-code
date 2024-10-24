@@ -12,7 +12,7 @@ using namespace std;
 void quick_sort(vector<int> &arr, int l, int r) {
     if (r - l <= 2) {
         if (r - l <= 1) return ;
-        if (arr[l] > arr[r - 1]) swap(arr[l], arr[r - 1]);
+        if (arr[l] > arr[l + 1]) swap(arr[l], arr[l + 1]);
     }
     // partition
     int x = l, y = r - 1, z = arr[l];
@@ -32,16 +32,20 @@ void quick_sort(vector<int> &arr, int l, int r) {
 void quick_sort_v1(vector<int> &arr, int l, int r) {
     if (r - l <= 2) {
         if (r - l <= 1) return ;
-        if (arr[l] > arr[r - 1]) swap(arr[l], arr[r - 1]);
+        if (arr[l] > arr[l + 1]) swap(arr[l], arr[l + 1]);
     }
     // partition
     int x = l, y = r - 1, z = arr[l];
     do {
         while (arr[x] < z) ++x;
         while (arr[y] > z) --y;
-        if (x <= y) swap(arr[x++], arr[y--]);
+        if (x <= y) {
+            swap(arr[x], arr[y]);
+            ++x;
+            --y;
+        }
     } while (x <= y);
-    quick_sort_v1(arr, l, x);
+    quick_sort_v1(arr, l, y + 1);
     quick_sort_v1(arr, x, r);
     return ;
 }
@@ -57,7 +61,7 @@ int three_select(int a, int b, int c) {
 void quick_sort_v2(vector<int> &arr, int l, int r) {
     if (r - l <= 2) {
         if (r - l <= 1) return ;
-        if (arr[l] > arr[r - 1]) swap(arr[l], arr[r - 1]);
+        if (arr[l] > arr[l + 1]) swap(arr[l], arr[l + 1]);
     }
     // partition
     int x = l, y = r - 1, z = three_select(
@@ -68,9 +72,13 @@ void quick_sort_v2(vector<int> &arr, int l, int r) {
     do {
         while (arr[x] < z) ++x;
         while (arr[y] > z) --y;
-        if (x <= y) swap(arr[x++], arr[y--]);
+        if (x <= y) {
+            swap(arr[x], arr[y]);
+            ++x;
+            --y;
+        }
     } while (x <= y);
-    quick_sort_v2(arr, l, x);
+    quick_sort_v2(arr, l, y + 1);
     quick_sort_v2(arr, x, r);
     return ;
 }
@@ -79,7 +87,7 @@ void quick_sort_v2(vector<int> &arr, int l, int r) {
 void quick_sort_v3(vector<int> &arr, int l, int r) {
     if (r - l <= 2) {
         if (r - l <= 1) return ;
-        if (arr[l] > arr[r - 1]) swap(arr[l], arr[r - 1]);
+        if (arr[l] > arr[l + 1]) swap(arr[l], arr[l + 1]);
     }
     while (l < r) {
         // partition
@@ -91,7 +99,12 @@ void quick_sort_v3(vector<int> &arr, int l, int r) {
         do {
             while (arr[x] < z) ++x;
             while (arr[y] > z) --y;
-            if (x <= y) swap(arr[x++], arr[y--]);
+            if (x <= y) {
+                swap(arr[x], arr[y]);
+                ++x;
+                --y;
+            }
+            
         } while (x <= y);
         quick_sort_v3(arr, l, y + 1);
         l = x;
