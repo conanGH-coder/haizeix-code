@@ -12,8 +12,8 @@ int binary_search(int l, int r, int target, int arr[]) {
     while (head <= tail) {
         mid = (head + tail) >> 1;
         if (arr[mid] == target) return mid;
-        else if (arr[mid] < target) tail = mid - 1;
-        else head = mid + 1;
+        else if (arr[mid] < target) head = mid + 1;
+        else tail = mid - 1;
     }
     return -1;
 }
