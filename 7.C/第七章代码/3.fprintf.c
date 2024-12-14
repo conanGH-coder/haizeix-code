@@ -1,15 +1,16 @@
 /*************************************************************************
-    > File Name: 2.stdout.c
+    > File Name: 3.fprintf.c
     > Author: 
     > Mail: 
-    > Created Time: Sat Dec 14 23:15:45 2024
+    > Created Time: Sat Dec 14 23:37:18 2024
  ************************************************************************/
 
 #include <stdio.h>
 
 int main() {
-    printf("aslfakgsgljasgkasj");
-    fflush(stdout);
-    *((int *)(0)) = 5;
+    fprintf(stdout, "hello world\n");
+    int n;
+    fscanf(stdin, "%d", &n);
+    fprintf(stderr, "n = %d\n", n);
     return 0;
 }
