@@ -32,7 +32,7 @@ void output(int n) {
 }
 
 void init(int n) {
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i <= n; i++) {
         fa[i] = i;
         node_size[i] = 1;
     }
