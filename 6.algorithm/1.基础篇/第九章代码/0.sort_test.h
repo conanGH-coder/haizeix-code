@@ -14,7 +14,7 @@
 #include <string.h>
 
 #define SMALL_DATA_N   5000
-#define BIG_DATA_N 10000000
+#define BIG_DATA_N  1000000
 
 __attribute__((constructor))
 inline void __init_Rand__() {

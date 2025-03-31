@@ -31,8 +31,8 @@ int main() {
     memmove(s3, s1, len1 + 1);
     printf("s2 = %s\n", s2);
     printf("s3 = %s\n", s3);
-    memcpy(s2 + 4, s2, len1 + 1);
-    memmove(s3 + 4, s3, len1 + 1);
+    memcpy(s2 + 7, s2, len1 + 1);
+    memmove(s3 + 7, s3, len1 + 1);
     printf("s2 = %s\n", s2);
     printf("s3 = %s\n", s3);
     return 0;
